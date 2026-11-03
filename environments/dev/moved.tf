@@ -1,0 +1,20 @@
+module {
+    from = module.blog_vpc
+    to   = module.dev.module.blog_vpc
+}
+module {
+    from = module.blog_sg
+    to   = module.dev.module.blog_sg
+}
+module {
+    from = module.blog_alb
+    to   = module.dev.module.blog_alb
+}
+module {
+    from = aws_lb_target_group.blog
+    to   = module.dev.aws_lb_target_group.blog
+}
+module {
+    from = module.blog_autoscaling
+    to   = module.dev.module.blog_autoscaling
+}
